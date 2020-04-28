@@ -12,7 +12,7 @@ import TextField from '@material-ui/core/TextField';
 class TaskForm extends Component {
 
   render() {
-    const { classes, open, onClose } = this.props;
+    const { open, onClose } = this.props;
 
     return (
       <Dialog open={open} onClose={onClose} aria-labelledby="form-dialog-title">

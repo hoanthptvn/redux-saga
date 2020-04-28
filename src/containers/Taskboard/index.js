@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core';
 import styles from './styles';
-import TaskList from './../../components/TaskList'
+import TaskList from './../../components/TaskList';
 import { STATUSES } from './../../constants';
 import TaskForm from './../../components/TaskForm';
 
@@ -28,7 +28,7 @@ const ListTask = [
     description: "Play game fifa",
     status: 1
   }
-]
+];
 
 class TaskBoard extends Component {
 
@@ -44,18 +44,18 @@ class TaskBoard extends Component {
         {
           STATUSES.map((status, index) => {
             const taskFiltered = ListTask.filter(task => task.status === status.value);
-            return <TaskList key={index} status={status} index={index} tasks={taskFiltered} />
+            return <TaskList key={index} status={status} index={index} tasks={taskFiltered} />;
           })
         }
       </Grid >
-    )
+    );
     return xhtml;
   }
 
   handleClose = () => {
     this.setState({
       open: false
-    })
+    });
   }
 
   openForm = () => {
@@ -67,7 +67,7 @@ class TaskBoard extends Component {
   renderForm() {
     const { open } = this.state;
     let xhtml = null;
-    xhtml = <TaskForm open={open} onClose={this.handleClose} />
+    xhtml = <TaskForm open={open} onClose={this.handleClose} />;
     return xhtml;
   }
 
