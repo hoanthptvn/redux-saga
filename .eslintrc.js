@@ -24,8 +24,7 @@ module.exports = {
     'react/forbid-prop-types': 0,
     'react/require-default-props': 0,
     'react/jsx-closing-bracket-location': 1,
-    'react/no-array-index-key': 1,
-    'eol-last': 0,
+    'react/no-array-index-key': 0,
     'prettier/prettier': [
       'error',
       {
