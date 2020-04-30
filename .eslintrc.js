@@ -41,6 +41,7 @@ module.exports = {
     'import/no-useless-path-segments': 1,
     'import/prefer-default-export': 0,
     'no-console': 0,
+    // 'react/jsx-uses-var': 1,
   },
   plugins: ['prettier'],
   env: {
