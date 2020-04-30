@@ -1,7 +1,7 @@
 import { withStyles } from '@material-ui/core';
-import Button from "@material-ui/core/Button";
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import AddIcon from "@material-ui/icons/Add";
+import AddIcon from '@material-ui/icons/Add';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import TaskForm from '../../components/TaskForm';
@@ -12,18 +12,20 @@ import styles from './styles';
 const ListTask = [
   {
     id: 1,
-    title: "Read book",
-    description: "Ready material book",
+    title: 'Read book',
+    description: 'Ready material book',
     status: 0,
-  }, {
+  },
+  {
     id: 2,
-    title: "Play football",
-    description: "With my friend",
+    title: 'Play football',
+    description: 'With my friend',
     status: 2,
-  }, {
+  },
+  {
     id: 3,
-    title: "Play game",
-    description: "Play game fifa",
+    title: 'Play game',
+    description: 'Play game fifa',
     status: 1,
   },
 ];
@@ -40,32 +42,31 @@ class TaskBoard extends Component {
     this.setState({
       open: false,
     });
-  }
+  };
 
   openForm = () => {
     this.setState({
       open: true,
     });
-  }
+  };
 
   renderBoard() {
     let xhtml = null;
     xhtml = (
-      <Grid
-        container
-        spacing={2}>
-        {
-          STATUSES.map((status, index) => {
-            const taskFiltered = ListTask.filter((task) => task.status === status.value);
-            return (
-              <TaskList
-                key={index}
-                status={status}
-                index={index}
-                tasks={taskFiltered} />
-            );
-          })
-        }
+      <Grid container spacing={2}>
+        {STATUSES.map((status, index) => {
+          const taskFiltered = ListTask.filter(
+            (task) => task.status === status.value
+          );
+          return (
+            <TaskList
+              key={index}
+              status={status}
+              index={index}
+              tasks={taskFiltered}
+            />
+          );
+        })}
       </Grid>
     );
     return xhtml;
@@ -81,10 +82,13 @@ class TaskBoard extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div
-        className={classes.taskBoard}
-      >
-        <Button variant="contained" color="primary" className={classes.button} onClick={this.openForm}>
+      <div className={classes.taskBoard}>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          onClick={this.openForm}
+        >
           <AddIcon /> Thêm mới công việc
         </Button>
 

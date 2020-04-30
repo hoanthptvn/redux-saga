@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
-
-import TaskItem from './../TaskItem';
-
 import { withStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import React, { Component } from 'react';
+import TaskItem from '../TaskItem';
 import styles from './styles';
 
-class TaskList extends Component {
+class TaskList extends React.PureComponent {
   render() {
     const { classes, status, tasks, index } = this.props;
     return (
@@ -16,14 +14,12 @@ class TaskList extends Component {
           <div className={classes.status}>{status.label}</div>
         </Box>
         <div className={classes.wrapperListTask}>
-          {
-            tasks.map(task => {
-              return <TaskItem key={task.id} status={status} task={task} />
-            })
-          }
+          {tasks.map((task) => {
+            return <TaskItem key={task.id} status={status} task={task} />;
+          })}
         </div>
       </Grid>
-    )
+    );
   }
 }
 
