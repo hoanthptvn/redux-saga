@@ -4,6 +4,9 @@ import Grid from '@material-ui/core/Grid';
 import AddIcon from '@material-ui/icons/Add';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as taskActions from '../../actions/task';
 import TaskForm from '../../components/TaskForm';
 import TaskList from '../../components/TaskList';
 import { STATUSES } from '../../constants';
@@ -36,6 +39,12 @@ class TaskBoard extends Component {
     this.state = {
       open: false,
     };
+  }
+
+  componentDidMount() {
+    const { taskActionCreator } = this.props;
+    const { fetchListTask } = taskActionCreator;
+    fetchListTask();
   }
 
   handleClose = () => {
@@ -101,6 +110,18 @@ class TaskBoard extends Component {
 
 TaskBoard.propTypes = {
   classes: PropTypes.object,
+  taskActions: PropTypes.shape({
+    fetchListTask: PropTypes.func,
+  }),
 };
 
-export default withStyles(styles)(TaskBoard);
+const mapStateToProps = null;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    taskActionCreator: bindActionCreators(taskActions, dispatch),
+  };
+};
+
+export default withStyles(styles)(
+  connect(mapStateToProps, mapDispatchToProps)(TaskBoard)
+);
