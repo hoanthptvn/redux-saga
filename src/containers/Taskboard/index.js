@@ -99,7 +99,7 @@ TaskBoard.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    listTask: state.task.listTask,
+    listTask: state.tasks.listTask,
   };
 };
 const mapDispatchToProps = (dispatch) => {

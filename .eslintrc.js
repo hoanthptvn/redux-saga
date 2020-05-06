@@ -43,6 +43,7 @@ module.exports = {
     'react/jsx-first-prop-new-line': 1,
     'no-underscore-dangle': 0,
     // 'react/jsx-uses-var': 1,
+    'prefer-const': 1,
   },
   plugins: ['prettier'],
   env: {

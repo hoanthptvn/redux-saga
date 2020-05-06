@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import TaskItem from '../TaskItem';
 import styles from './styles';
 
-class TaskList extends React.PureComponent {
+class TaskList extends Component {
   render() {
     const { classes, status, tasks, index } = this.props;
     return (
