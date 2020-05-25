@@ -8,6 +8,8 @@ import theme from '../../commons/Theme';
 import configureStore from '../../redux/configureStore';
 import Taskboard from '../Taskboard';
 import styles from './styles';
+import GlobalLoading from '../../components/GlobalLoading';
+import Modal from '../../components/Modal';
 
 const store = configureStore();
 
@@ -17,6 +19,8 @@ class App extends Component {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <ToastContainer />
+          <GlobalLoading />
+          <Modal />
           <Taskboard />
         </ThemeProvider>
       </Provider>
