@@ -1,19 +1,19 @@
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import { withStyles } from '@material-ui/styles';
 import MenuItem from '@material-ui/core/MenuItem';
+import { withStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
 import * as modalActions from '../../actions/modal';
-import renderTextField from '../../components/FormHelper/TextField';
+import * as taskActions from '../../actions/task';
 import renderSelectField from '../../components/FormHelper/Select';
+import renderTextField from '../../components/FormHelper/TextField';
 import styles from './styles';
 import validate from './validate';
-import * as taskActions from '../../actions/task';
 
 class TaskForm extends Component {
   handleSubmitForm = (data) => {
@@ -113,7 +113,7 @@ class TaskForm extends Component {
 TaskForm.propTypes = {
   classes: PropTypes.object,
   modalActionCreators: PropTypes.shape({
-    hideModal: PropTypes.func,
+    hideModel: PropTypes.func,
   }),
   taskActionsCreators: PropTypes.shape({
     addTask: PropTypes.func,

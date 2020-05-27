@@ -45,6 +45,7 @@ module.exports = {
     // 'react/jsx-uses-var': 1,
     'prefer-const': 1,
     'react/jsx-props-no-spreading': 1,
+    'import/no-cycle': 1,
   },
   plugins: ['prettier'],
   env: {

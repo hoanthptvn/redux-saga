@@ -33,7 +33,7 @@ CommonModal.propTypes = {
   title: PropTypes.string,
   component: PropTypes.object,
   modalActionCreators: PropTypes.shape({
-    hideModal: PropTypes.func,
+    hideModel: PropTypes.func,
   }),
 };
 

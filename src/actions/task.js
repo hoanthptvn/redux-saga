@@ -1,5 +1,5 @@
-import * as taskConstants from '../constants/task';
 import { STATUSES } from '../constants';
+import * as taskConstants from '../constants/task';
 
 export const fetchListTask = (params = {}) => {
   return {
