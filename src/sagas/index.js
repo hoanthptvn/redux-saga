@@ -17,9 +17,11 @@ import {
   fetchListTaskSuccess,
   updateTaskSuccess,
   updateTaskFailed,
+  deleteTaskFailed,
+  deleteTaskSuccess,
 } from '../actions/task';
 import { hideLoading, showLoading } from '../actions/ui';
-import { addTask, getList, updateTask } from '../apis/task';
+import { addTask, getList, updateTask, deleteTask } from '../apis/task';
 import { STATUSES, STATUS_CODE } from '../constants/index';
 import * as taskTypes from '../constants/task';
 
@@ -105,10 +107,26 @@ function* updateTaskSaga({ payload }) {
   yield put(hideLoading());
 }
 
+function* deleteTaskSaga({ payload }) {
+  const { id } = payload;
+  yield put(showLoading());
+  const resp = yield call(deleteTask, id);
+  const { data, status: statusCode } = resp;
+  if (statusCode === STATUS_CODE.SUCCESS) {
+    yield put(deleteTaskSuccess(id));
+    yield put(hideModel());
+  } else {
+    yield put(deleteTaskFailed(data));
+  }
+  yield delay(1000);
+  yield put(hideLoading());
+}
+
 function* rootSaga() {
   yield fork(watchFetchListTaskAction);
   yield takeLatest(taskTypes.FILTER_TASK, filterTaskSaga);
   yield takeEvery(taskTypes.ADD_TASK, addTaskSaga);
   yield takeLatest(taskTypes.UPDATE_TASK, updateTaskSaga);
+  yield takeLatest(taskTypes.DELETE_TASK, deleteTaskSaga);
 }
 export default rootSaga;

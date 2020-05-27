@@ -1,4 +1,4 @@
-import { withStyles } from '@material-ui/core';
+import { withStyles, Box } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import AddIcon from '@material-ui/icons/Add';
@@ -62,6 +62,50 @@ class TaskBoard extends Component {
     changeModalContent(<TaskForm />);
   };
 
+  showModalDeleteTask = (task) => {
+    const { modalActionCreator, classes } = this.props;
+    const {
+      showModal,
+      hideModel,
+      changeModalContent,
+      changeModalTitle,
+    } = modalActionCreator;
+    showModal();
+    changeModalTitle('Xóa công việc');
+    changeModalContent(
+      <div className={classes.modalDelete}>
+        <div className={classes.modalConfirmText}>
+          Bạn chắc muốn xóa{' '}
+          <span className={classes.modalConfirmTextBold}>{task.title} ?</span>
+          <Box display="flex" flexDirection="row-reverse" mt={2}>
+            <Box ml={1}>
+              <Button variant="contained" onClick={hideModel}>
+                Huy bỏ
+              </Button>
+            </Box>
+            <Box>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => this.handleDeleteTask(task)}
+              >
+                Đồng ý
+              </Button>
+            </Box>
+          </Box>
+        </div>
+      </div>
+    );
+  };
+
+  handleDeleteTask(task) {
+    const { id } = task;
+    console.log(id);
+    const { taskActionCreator } = this.props;
+    const { deleteTask } = taskActionCreator;
+    deleteTask(id);
+  }
+
   renderBoard() {
     const { listTask } = this.props;
     let xhtml = null;
@@ -78,7 +122,7 @@ class TaskBoard extends Component {
               index={index}
               tasks={taskFiltered}
               onClickEdit={this.handleEditTask}
-              onClickDelete={this.onClickDelete}
+              onClickDelete={this.showModalDeleteTask}
             />
           );
         })}
@@ -127,10 +171,11 @@ TaskBoard.propTypes = {
     fetchListTask: PropTypes.func,
     filterTask: PropTypes.func,
     setTaskEditing: PropTypes.func,
+    deleteTask: PropTypes.func,
   }),
   modalActionCreator: PropTypes.shape({
     showModal: PropTypes.func,
-    hideModal: PropTypes.func,
+    hideModel: PropTypes.func,
     changeModalTitle: PropTypes.func,
     changeModalContent: PropTypes.func,
   }),

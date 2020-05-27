@@ -7,24 +7,6 @@
       "id": 1
     },
     {
-      "title": "Play game",
-      "description": "Learning reactJss",
-      "status": 1,
-      "id": 2
-    },
-    {
-      "title": "Learning java",
-      "description": "mo ta oppa",
-      "status": 2,
-      "id": 3
-    },
-    {
-      "title": "Learning Javascript",
-      "description": "Xin chao",
-      "status": 2,
-      "id": 4
-    },
-    {
       "title": "Listening Music",
       "description": "Son Tung MTP",
       "status": 0,
@@ -33,13 +15,13 @@
     {
       "title": "Learning Reactjs",
       "description": "Redux-Form",
-      "status": 0,
+      "status": 2,
       "id": 6
     },
     {
       "title": "Learning Redux",
       "description": "redux-saga",
-      "status": 0,
+      "status": 2,
       "id": 7
     },
     {
@@ -49,22 +31,10 @@
       "id": 8
     },
     {
-      "title": "assa11",
-      "description": "asdasdasd",
-      "status": 2,
-      "id": 9
-    },
-    {
       "title": "Di boi",
       "description": "Go cap HCM",
       "status": 1,
       "id": 10
-    },
-    {
-      "title": "Ca Hat",
-      "description": "Mo ta ca hat nhu hach",
-      "status": 1,
-      "id": 11
     }
   ]
 }
